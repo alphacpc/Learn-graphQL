@@ -2,11 +2,7 @@ import { GraphQLServer } from 'graphql-yoga'
 
 //DEFINITION DE NOTRE SCHEMA
 //NOTRE CONTRAT
-const typeDefs = `
-  type Query {
-    hello(name: String): String!
-  }
-`
+const typeDefs = "src/Schema/shema.graphql"
 //IMPLEMENTER NOTRE CONTRAT
 const resolvers = {
   Query: {
