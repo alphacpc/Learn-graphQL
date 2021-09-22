@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon -e js,mjs,json,graphql src/index.js"
   },
   "dependencies": {
     "graphql-yoga": "^1.18.3",
