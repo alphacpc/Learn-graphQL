@@ -1,9 +1,7 @@
-import { db } from "../Datas/db.mjs";
-
 export const Query = {
     hello: (_, { name }) => `Hello ${name || 'World'}`,
-    getTodos: () => db.Todos,
-    getTodoById: (root,args,context,info) => {
+    getTodos: (root,args,{ db }, info) => db.Todos,
+    getTodoById: (root,args, { db },info) => {
         const { id } = args;
         const todo = db.Todos.find(element => element.id === id )
 
@@ -13,8 +11,8 @@ export const Query = {
 
         return todo
     },
-    getUsers: () => db.Users,
-    getUserById: (root,args,context,info) =>{
+    getUsers: (root,args,{db},info) => db.Users,
+    getUserById: (root,args,{db},info) =>{
         const {id} = args;
         const user = db.Users.find(element => element.id === id)
 

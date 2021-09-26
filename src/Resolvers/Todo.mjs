@@ -1,7 +1,7 @@
-import { db } from "../Datas/db.mjs"
+
 
 export const Todo = {
-    user: ({userId}, args, context, info) => {
+    user: ({userId}, args, { db }, info) => {
         return db.Users.find(user => user.id === userId)
     } 
 }
