@@ -3,6 +3,7 @@ import { Query } from './Resolvers/Query.mjs';
 import { Todo } from './Resolvers/Todo.mjs';
 import { User } from './Resolvers/User.mjs';
 import { db } from './Datas/db.mjs'
+import { Mutation } from './Resolvers/Mutations.mjs';
 
 //DEFINITION DE NOTRE SCHEMA
 //NOTRE CONTRAT
@@ -13,7 +14,8 @@ const typeDefs = "src/Schema/shema.graphql"
 const resolvers = {
   Query,
   Todo,
-  User
+  User,
+  Mutation
 }
 
 const server = new GraphQLServer({ 

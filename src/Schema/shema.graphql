@@ -27,3 +27,22 @@ type Query {
     getUsers: [User]!
     getUserById(id: Int): User!
 }
+
+type Mutation{
+    addTodo(addTodoInput: addTodoInput): Todo!
+    updateTodo(id: Int!, updateTodoInput: updateTodoInput): Todo!
+    deleteTodo(id: Int!): Todo!
+}
+
+input addTodoInput {
+    name: String!
+    content: String!
+    user: Int!
+}
+
+input updateTodoInput {
+    name: String
+    content: String
+    user: Int
+    status: TodoStatus
+}
