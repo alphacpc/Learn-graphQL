@@ -34,6 +34,10 @@ type Mutation{
     deleteTodo(id: Int!): Todo!
 }
 
+type Subscription{
+    todo: Todo!
+}
+
 input addTodoInput {
     name: String!
     content: String!
