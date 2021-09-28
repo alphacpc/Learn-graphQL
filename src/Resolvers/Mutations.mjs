@@ -1,19 +1,20 @@
 export const Mutation ={
-    addTodo: (root, {addTodoInput}, {db} , info) => {
-        const {name, content, userId} = addTodoInput
+    addTodo: (root, {addTodoInput}, {db, pubsub } , info) => {
+        const {name, content, user} = addTodoInput
         
-        if(! existInArray(db.Users, "id", userId)){
-            throw new Error(`Le user "${userId}" n'existe pas !`);
+        if(! existInArray(db.Users, "id", user)){
+            throw new Error(`Le user "${user}" n'existe pas !`);
         }else{
             const newTodo = {
                 id: db.Todos[db.Todos.length - 1].id + 1,
                 status : "WAITING",
                 name,
                 content,
-                user: userId
+                user: user
             }
 
             db.Todos.push(newTodo);
+            pubsub.publish("todo",{todo: newTodo});
             return newTodo;
         }
     },
